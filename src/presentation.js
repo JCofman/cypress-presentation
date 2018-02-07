@@ -56,6 +56,7 @@ const CustomHeading = styled(Heading)`
 `;
 
 const CustomTest = styled(Text)`
+  font-size: 2em !important;
   color: #9ccd00 !important;
   font-family: Neoneon !important;
   transform: skew(0, -8deg);
@@ -248,7 +249,7 @@ export default class Presentation extends React.Component {
               <ListItem>🏔️ Explore everything inside the browser</ListItem>
             </Appear>
             <Appear>
-              <ListItem>💻 Dashboard </ListItem>
+              <ListItem>💻 Dashboard</ListItem>
             </Appear>
             <Appear>
               <ListItem>
@@ -302,11 +303,11 @@ export default class Presentation extends React.Component {
           <List>
             <Appear>
               <ListItem>
-                Only Chrome (Firefox support in progress) others comming soon.
+                Only Chrome (Firefox support in progress) others comming soon
               </ListItem>
             </Appear>
             <Appear>
-              <ListItem>IE 11 most likely never.</ListItem>
+              <ListItem>IE 11 most likely never</ListItem>
             </Appear>
             <Appear>
               <ListItem>Currently no first class fetch() support</ListItem>
