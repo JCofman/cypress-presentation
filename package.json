@@ -1,0 +1,25 @@
+{
+  "name": "cypress-presentation",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.17.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "spectacle-scripts": "2.0.0",
+    "spectacle-terminal": "^0.4.0",
+    "styled-components": "^3.1.6"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "cypress-open": "node_modules/.bin/cypress open",
+    "cypress-cli": "node_modules/.bin/cypress run"
+  },
+  "devDependencies": {
+    "cypress": "^1.4.2"
+  }
+}

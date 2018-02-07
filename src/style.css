@@ -1,0 +1,84 @@
+@font-face {
+  font-family: Neoneon;
+  src: url("./assets/Neoneon-export/Neoneon.woff2");
+}
+/*glow for webkit*/
+
+h4 {
+  text-shadow: 4px 3px 0 rgba(255, 255, 255, 0.2);
+  padding: 150px;
+}
+a {
+  color: white;
+}
+h1 {
+  font-weight: 100 !important;
+  padding: 20px;
+}
+ul {
+  text-shadow: 4px 3px 0 rgba(255, 255, 255, 0.2);
+}
+p {
+  text-shadow: 4px 3px 0 rgba(255, 255, 255, 0.2);
+}
+.socialIcons {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+}
+.socialIcons > li {
+  margin: 10px;
+  /* Use -webkit- only if supporting: Chrome < 54, iOS < 9.3, Android < 4.4.4 */
+  -webkit-filter: drop-shadow(4px 3px rgba(255, 255, 255, 0.2));
+  filter: drop-shadow(4px 3px rgba(255, 255, 255, 0.2));
+}
+.Terminal-header {
+  background-color: #1b1e28 !important;
+  color: #f2f2f2 !important;
+}
+.Terminal-main {
+  background-color: #1b1e28 !important;
+}
+.member__avatar {
+  width: 200px;
+  border-radius: 50%;
+  margin: 10px;
+}
+.member__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+.glow-button {
+  border-radius: 2.5em;
+  display: inline-block;
+  font-weight: 500;
+  font-size: 1.125rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: none;
+  padding: 1.5em 4em;
+  margin: auto;
+  background: #f54279;
+  color: #fff;
+}
+
+.neonTest {
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #9ccd00,
+    0 0 70px #9ccd00, 0 0 80px #9ccd00, 0 0 100px #9ccd00, 0 0 150px #9ccd00;
+}
+
+@-webkit-keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #9ccd00,
+      0 0 70px #9ccd00, 0 0 80px #9ccd00, 0 0 100px #9ccd00, 0 0 150px #9ccd00;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #9ccd00,
+      0 0 35px #9ccd00, 0 0 40px #9ccd00, 0 0 50px #9ccd00, 0 0 75px #9ccd00;
+  }
+}
