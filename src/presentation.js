@@ -103,13 +103,11 @@ export default class Presentation extends React.Component {
         });
       })
       .catch(error => {
-        console.log(error.response);
         this.setState({
           errorMessage: `HTTPERROR: ${error.response.status}  ${
             error.response.data.message
           }`
         });
-        console.log(error);
       });
   };
   render() {
@@ -217,6 +215,32 @@ export default class Presentation extends React.Component {
           <CustomHeading size={1} caps lineHeight={1} textColor="quartenary">
             Why?
           </CustomHeading>
+          <List>
+            <Appear>
+              <ListItem>Could not show everything</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Further open question</ListItem>
+            </Appear>
+          </List>
+        </Slide>
+        <Slide
+          transition={["fade"]}
+          bgImage={"./assets/pyramid.jpeg"}
+          bgDarken={0.75}
+          bgColor="primary"
+        >
+          <CustomHeading size={1} caps lineHeight={1} textColor="quartenary">
+            Testing Pyramid
+          </CustomHeading>
+          <List>
+            <Appear>
+              <ListItem>or triangle</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>or...</ListItem>
+            </Appear>
+          </List>
         </Slide>
         <Slide
           transition={["fade"]}
@@ -267,6 +291,36 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide
           transition={["fade"]}
+          bgColor="primary"
+          bgImage={"./assets/love.jpg"}
+          bgDarken={0.7}
+        >
+          <CustomHeading size={1} caps lineHeight={1} textColor="quartenary">
+            Why I like it
+          </CustomHeading>
+          <List>
+            <Appear>
+              <ListItem>
+                Integration tests are like real user interactions
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>We have an actual browser</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem> Devtools instead console.log</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                {" "}
+                Network requests, inspect elements..., trigger actions, modify
+                styles
+              </ListItem>
+            </Appear>
+          </List>
+        </Slide>
+        <Slide
+          transition={["fade"]}
           bgColor="neonbggray"
           bgImage={"./assets/getting.jpeg"}
           bgDarken={0.8}
@@ -292,10 +346,49 @@ export default class Presentation extends React.Component {
         <Slide
           transition={["fade"]}
           bgColor="neonbggray"
+          bgImage={"./assets/fight.jpg"}
+          bgDarken={0.8}
+        >
+          <CustomHeading size={1} caps lineHeight={1} textColor="quartenary">
+            Cypress.io VS Selenium
+          </CustomHeading>
+          <List>
+            <ListItem>Live example super easy test</ListItem>
+            <Appear>
+              <ListItem>Everything in one place</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Auto rerun tests ...</ListItem>
+            </Appear>
+          </List>
+        </Slide>
+        <Slide
+          transition={["fade"]}
+          bgColor="neonbggray"
+          bgImage={"./assets/ci.jpg"}
+          bgDarken={0.8}
+        >
+          <CustomHeading size={1} caps lineHeight={1} textColor="quartenary">
+            Cypress.io CI integration
+          </CustomHeading>
+          <List>
+            <ListItem>
+              {" "}
+              <a
+                href="https://github.com/cypress-io/cypress-docker-images"
+                className=""
+              >
+                Docker images
+              </a>
+            </ListItem>
+            <ListItem>🤩 Save screenshots and recording 🤩</ListItem>
+          </List>
+        </Slide>
+        <Slide
+          transition={["fade"]}
+          bgColor="neonbggray"
           bgDarken={0.6}
-          bgImage={
-            "https://images.unsplash.com/photo-1491924759721-64cea51ecd6e?ixlib=rb-0.3.5&s=f82c345ebdacc5ee0dfd81543fb3fd5a&auto=format&fit=crop&w=3302&q=80"
-          }
+          bgImage={"./assets/trick.jpeg"}
         >
           <CustomHeading size={1} caps lineHeight={1} textColor="quartenary">
             Tradeoffs
@@ -323,6 +416,9 @@ export default class Presentation extends React.Component {
             <Appear>
               <ListItem>Not as established as Webdriver...</ListItem>
             </Appear>
+            <Appear>
+              <ListItem>No Jest Matchers 😕</ListItem>
+            </Appear>
           </List>
         </Slide>
         <Slide
@@ -330,7 +426,11 @@ export default class Presentation extends React.Component {
           bgColor="neonbggray"
           getAppearStep={this.updateSteps}
         >
-          <button className="glow-button" onClick={this.fetchGithub}>
+          <button
+            data-testid="githubButton"
+            className="glow-button"
+            onClick={this.fetchGithub}
+          >
             EXAMPLE
           </button>
           {this.state.errorMessage.length > 0 ? (
@@ -348,20 +448,18 @@ export default class Presentation extends React.Component {
             </div>
           )}
           {this.state.gitInovexMembers.length > 0 && (
-            <p>
+            <div>
               Gesamtanzahl an Mitgliedern bei{" "}
               <a href="https://github.com/inovex">https://github.com/inovex</a>{" "}
               : <CustomTest>{this.state.gitInovexMembers.length}</CustomTest>
-            </p>
+            </div>
           )}
         </Slide>
         <Slide
           transition={["fade"]}
           bgColor="primary"
           bgDarken={0.85}
-          bgImage={
-            "https://images.unsplash.com/photo-1507914997623-5b75b37d9cad?ixlib=rb-0.3.5&s=c41bbd283c5ef488a31239971604689f&auto=format&fit=crop&w=3304&q=80"
-          }
+          bgImage={"./assets/book.jpeg"}
         >
           <CustomHeading size={1} caps lineHeight={1} textColor="quartenary">
             Further Ressources
@@ -385,12 +483,64 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide
           transition={["fade"]}
+          bgColor="primary"
+          bgDarken={0.85}
+          bgImage={"./assets/social.jpg"}
+        >
+          <CustomHeading size={1} caps lineHeight={1} textColor="quartenary">
+            Follow smart people...
+          </CustomHeading>
+          <List>
+            <a href="https://twitter.com/kentcdodds">
+              <ListItem>
+                <svg
+                  aria-labelledby="simpleicons-twitter-icon"
+                  fill="#fff"
+                  height="32"
+                  width="32"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title id="simpleicons-twitter-icon">Twitter icon</title>
+                  <path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z" />
+                </svg>{" "}
+                Kent C. Dodds
+              </ListItem>
+            </a>
+            <a href="https://twitter.com/bahmutov">
+              <ListItem>
+                <svg
+                  aria-labelledby="simpleicons-twitter-icon"
+                  fill="#fff"
+                  height="32"
+                  width="32"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title id="simpleicons-twitter-icon">Twitter icon</title>
+                  <path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z" />
+                </svg>{" "}
+                Gleb Bahmutov
+              </ListItem>
+            </a>
+            <a href="https://www.youtube.com/watch?v=5FnalKRjpZk&feature=youtu.be">
+              <ListItem>What will come next and best practices...</ListItem>
+            </a>
+            <ListItem>
+              <a href="https://docs.cypress.io/guides/overview/why-cypress.html">
+                READ THE DOCS
+              </a>
+            </ListItem>
+          </List>
+        </Slide>
+        <Slide
+          transition={["fade"]}
           bgDarken={0.7}
           bgColor="secondary"
           textColor="primary"
-          bgImage={
-            "https://images.unsplash.com/photo-1443916568596-df5a58c445e9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a8b7f1061a6e24185a866576497490e2&auto=format&fit=crop&w=3200&q=80"
-          }
+          bgImage={"./assets/fun.jpeg"}
         >
           <CustomHeading size={1} caps lineHeight={1} textColor="quartenary">
             Happy Testing

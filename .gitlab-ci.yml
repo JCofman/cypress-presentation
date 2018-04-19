@@ -1,0 +1,25 @@
+# lint this file using
+# https://gitlab.com/ci/lint
+cypress-e2e:
+  image: cypress/base
+  stage: test
+  script:
+    - npm install
+    - $(npm bin)/cypress run --config baseUrl=http://e2eslides.netlify.com/
+  artifacts:
+    expire_in: 1 week
+    paths:
+    - cypress/screenshots
+    - cypress/videos
+
+cypress-e2e-chrome:
+  image: cypress/browsers:chrome65-ff57
+  stage: test
+  script:
+    - npm install
+    - $(npm bin)/cypress run --browser chrome --config baseUrl=http://e2eslides.netlify.com/
+  artifacts:
+    expire_in: 1 week
+    paths:
+    - cypress/screenshots
+    - cypress/videos

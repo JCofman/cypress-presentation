@@ -1,17 +1,40 @@
-describe("Slidedeck", function() {
-  it(".should() display super dupper awesome error message", function() {
-    cy.server(); // enable response stubbing
-    cy.route({
-      method: "GET", // Route all GET requests
-      url: "https://api.github.com/orgs/inovex/members",
-      response: {
-        message:
-          "Wir konnten den Request leider nicht verarbeiten. Sie haben zu viele Mitglieder in Ihrer Organisation"
-      },
-      status: 500
+describe("Slidedeck", () => {
+  beforeEach(() => {
+    cy.server();
+    cy.visit("/#/10");
+    cy.getByTestId("githubButton").as("githubButton");
+  });
+
+  describe("Intergration", () => {
+    it(".should() display github user", () => {
+      cy.route("GET", "/orgs/inovex/**", "fixture:github");
+      cy.get("@githubButton").click();
+      cy.get(".member__avatar");
     });
-    // https://on.cypress.io/visit
-    cy.visit("/#/7");
-    cy.get(".glow-button").click();
+    // ERROR CASE
+    it(".should() display super dupper awesome error message", () => {
+      const errorMessage =
+        "Wir konnten den Request leider nicht verarbeiten. Sie haben zu viele Mitglieder in Ihrer Organisation";
+      cy.route({
+        method: "GET", // Route all GET requests
+        url: "https://api.github.com/orgs/inovex/members",
+        response: {
+          message: errorMessage
+        },
+        status: 500
+      });
+      // https://on.cypress.io/visit
+      cy.get("@githubButton").click();
+      cy.getByText(errorMessage);
+    });
+  });
+
+  describe("e2e", () => {
+    it(".should() display inovex github user", () => {
+      cy.route("GET", "/orgs/inovex/**").as("githubRequest");
+      cy.get("@githubButton").click();
+      cy.wait("@githubRequest");
+      cy.get(".member__avatar");
+    });
   });
 });

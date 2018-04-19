@@ -1,4 +1,4 @@
 {
-  "baseUrl": "http://e2eslides.netlify.com",
+  "baseUrl": "http://localhost:3001",
   "chromeWebSecurity": false
 }

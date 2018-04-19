@@ -1,35 +1,16 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add("login", (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add("dismiss", { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This is will overwrite an existing command --
-// Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
-Cypress.on('window:before:load', (win) => {
+// https://github.com/kentcdodds/cypress-testing-library
+import "cypress-testing-library/add-commands";
+import { register } from "cypress-match-screenshot";
+register();
+Cypress.Commands.add("getByTestId", id => cy.get(`[data-testid="${id}"]`));
+
+Cypress.on("window:before:load", win => {
   // need to do that since fetch requests doesn't get recognized see stackoverflow error -> https://stackoverflow.com/questions/47534846/cypress-xhr-stubbing-ignores-ajax-requests-performed-with-fetch
   win.fetch = null;
 
   // service worker workaround since otherwise any fetch requests get cached
-  const promise = new Promise((resolve) => {});
-  return (win.navigator.serviceWorker.register = function () {
+  const promise = new Promise(resolve => {});
+  return (win.navigator.serviceWorker.register = function() {
     return promise;
   });
 });
