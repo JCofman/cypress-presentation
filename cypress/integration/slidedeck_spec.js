@@ -1,7 +1,7 @@
 describe("Slidedeck", () => {
   beforeEach(() => {
     cy.server();
-    cy.visit("/#/10");
+    cy.visit("/#/11");
     cy.getByTestId("githubButton").as("githubButton");
   });
 
